@@ -1,8 +1,15 @@
+# (TO MODIFY) Slurm arguments
+node=d001
+partition=yuxinchen-contrib
+mem=24G
+jobname=lora
+
+# Other arguments
 export MODEL_NAME="runwayml/stable-diffusion-v1-5"
 export INSTANCE_DIR="./data/data_teapot"
 export OUTPUT_DIR="./exps/output_dsn"
 
-lora_pti \
+srun -w ${node} --gres=gpu:1 -c 6 --mem ${mem} -p ${partition} --job-name=${jobname} lora_pti \
   --pretrained_model_name_or_path=$MODEL_NAME  \
   --instance_data_dir=$INSTANCE_DIR \
   --output_dir=$OUTPUT_DIR \
