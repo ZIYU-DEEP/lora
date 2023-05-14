@@ -1,6 +1,6 @@
 # (TO MODIFY) Slurm arguments
-node=d001
-partition=yuxinchen-contrib
+node=c001
+partition=yuxinchen-own
 mem=24G
 jobname=lora
 
